@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Prohibidos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+    <div class="contenedor">
+        <h1 style="color: #cc1111; text-transform: uppercase; letter-spacing: 2px;">Lista Negra / Prohibidos</h1>
+        <p style="font-size: 1.2rem;">Los siguientes usuarios han violado las normativas de equidad de la asociación:</p>
+        
+        <ul style="color: #ff3333; font-weight: bold;">
+            <li>❌ joaqui</li>
+            <li>❌ tomás</li>
+            <li>❌ mauro</li>
+            <li>❌ Joel</li>
+            <li>❌ Lorenzo</li>
+            <li>❌ Federico</li>
+            <li>❌ Pedro</li>
+        </ul>
+
+        <br>
+        <a href="{{ url_for('inicio') }}" class="btn-pestaña" style="text-decoration: none; display: inline-block;">Volver al Inicio</a>
+    </div>
+</body>
+</html>

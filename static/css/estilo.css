@@ -1,0 +1,137 @@
+/* Configuración general y fondo animado */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background: linear-gradient(-45deg, #cc1111, #117722, #990000, #115511);
+    background-size: 400% 400%;
+    animation: fondoRevolucionario 12s ease infinite;
+    text-align: center;
+}
+
+/* Animación del fondo rojo y verde */
+@keyframes fondoRevolucionario {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.contenedor {
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #ddaa00; /* Borde dorado simulando la bandera */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+}
+
+.bandera {
+    max-width: 350px; /* Limita el ancho de la bandera para que no sea gigante */
+    width: 100%;      /* Hace que se adapte si se mira desde un celular */
+    height: auto;     /* Mantiene la proporción original sin deformar */
+    border-radius: 8px;
+    border: 3px solid #fff;
+    margin: 10px auto 20px auto;
+    display: block;   /* Centra la imagen en el contenedor */
+}
+
+
+p.descripcion {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-left: 5px solid #cc1111;
+    border-radius: 4px;
+}
+
+/* Sistema de Pestañas / Botones */
+.botones-pestañas {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-pestaña {
+    background-color: #222;
+    color: #fff;
+    border: 2px solid #cc1111;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-pestaña:hover, .btn-pestaña.activo {
+    background-color: #cc1111;
+    border-color: #ffcc00;
+    box-shadow: 0 0 10px #cc1111;
+}
+
+/* Bloques de contenido de las pestañas */
+.contenido-pestaña {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.contenido-pestaña.activo {
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+li {
+    padding: 8px;
+    margin: 5px 0;
+    background: rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+/* Formulario de contraseña */
+.form-privado {
+    margin-top: 15px;
+}
+
+.input-password {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: none;
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.btn-enviar {
+    background-color: #117722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background-color: #1a9933;
+}
+
+.alerta-error {
+    background-color: #721c24;
+    color: #f8d7da;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}

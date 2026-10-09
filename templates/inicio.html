@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Revolucionarios del Mata-Mata</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- Imagen de la bandera -->
+        <img src="{{ url_for('static', filename='imagenes/bandera.png') }}" alt="Bandera Revolucionaria" class="bandera">
+
+        <!-- Texto principal corregido -->
+        <p class="descripcion">
+            Creación oficial de la asosiación "los revolucionaros del mata-mata", la cual, consiste en un grupo comunista (de todos, para todos) que, es una grupo de juego equitativo para todos y anti-grupos, cada vez que alguien rompa las reglas será enviado a una votacion, donde, los miembros de la asociación, votarán si esa persona se mantiene en el grupo o sea eliminada.
+        </p>
+
+        <!-- Alertas de contraseña incorrecta -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alerta-error">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <!-- Menú de Botones / Pestañas (Los 4 botones juntos) -->
+        <div class="botones-pestañas">
+            <button class="btn-pestaña activo" onclick="abrirPestaña(event, 'miembros')">Miembros</button>
+            <button class="btn-pestaña" onclick="abrirPestaña(event, 'rangos')">Rangos</button>
+            <button class="btn-pestaña" onclick="abrirPestaña(event, 'prohibidos-login')">Prohibidos</button>
+            <button class="btn-pestaña" onclick="abrirPestaña(event, 'como-unirse')">¿Cómo me uno?</button>
+        </div>
+
+        <!-- Pestaña 1: Miembros -->
+        <div id="miembros" class="contenido-pestaña activo">
+            <h2>Lista de Miembros</h2>
+            <ul>
+                <li>👤 David</li>
+                <li>👤 Kiara</li>
+                <li>👤 Ana</li>
+            </ul>
+        </div>
+
+        <!-- Pestaña 2: Rangos -->
+        <div id="rangos" class="contenido-pestaña">
+            <h2>Rangos de la Asociación</h2>
+            <p><strong>👑 Creadores:</strong> David, Kiara</p>
+            <p><strong>🛠️ Miembros:</strong> Ana</p>
+        </div>
+
+        <!-- Pestaña 3: Acceso a Prohibidos -->
+        <div id="prohibidos-login" class="contenido-pestaña">
+            <h2>Sección Restringida</h2>
+            <p>⚠️ Esta pestaña es privada, necesita una contraseña que solo la saben los creadores.</p>
+            
+            <form action="{{ url_for('verificar_acceso') }}" method="POST" class="form-privado">
+                <input type="password" name="password" placeholder="Introduce la contraseña" class="input-password" required><br>
+                <button type="submit" class="btn-enviar">Ingresar</button>
+            </form>
+        </div>
+
+        <!-- Pestaña 4: ¿Cómo me uno? -->
+        <div id="como-unirse" class="contenido-pestaña">
+            <h2>¡Sumate a la Asociación!</h2>
+            <p style="font-size: 1.3rem; line-height: 1.8; margin-top: 20px;">
+                Si quieres unirte, hablame por privado al <span style="color: #ffcc00; font-weight: bold; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; border: 1px dashed #ffcc00;">3496 556668</span>
+            </p>
+        </div>
+
+    </div> <!-- Cierre correcto del contenedor principal -->
+
+    <!-- Script en JavaScript para cambiar de pestaña -->
+    <script>
+        function abrirPestaña(evt, nombrePestaña) {
+            var i, contenido, botones;
+            
+            contenido = document.getElementsByClassName("contenido-pestaña");
+            for (i = 0; i < contenido.length; i++) {
+                contenido[i].className = contenido[i].className.replace(" activo", "");
+            }
+            
+            botones = document.getElementsByClassName("btn-pestaña");
+            for (i = 0; i < botones.length; i++) {
+                botones[i].className = botones[i].className.replace(" activo", "");
+            }
+            
+            document.getElementById(nombrePestaña).className += " activo";
+            evt.currentTarget.className += " activo";
+        }
+    </script>
+</body>
+</html>
